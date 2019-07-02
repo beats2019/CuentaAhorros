@@ -1,13 +1,16 @@
 #include "CuentaAhorros.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
     double CuentaAhorros::tasaInteresAnual = 0.03;
 
 
-    CuentaAhorros::CuentaAhorros( const double saldoInicial )
+    CuentaAhorros::CuentaAhorros( const double saldoInicial, const char * const cadena )
         : saldoAhorros( saldoInicial)
     {
+        nombre = new char[ strlen( cadena ) + 1 ];
+        strcpy( nombre, cadena );
 
     }
 
@@ -37,9 +40,12 @@ using namespace std;
 
     void CuentaAhorros::obtenerInformacion()
     {
-        cout <<" El cliente tiene un interes de " << calcularInteresMensual();
+        cout << nombre << " tiene un interes de " << calcularInteresMensual();
 
-        cout<<"\nEl cliente tiene un saldo de " << obtenerSaldo();
+        cout<<"\nDe esta manera tiene un saldo final de " << obtenerSaldo() << endl << endl;
+
+
+
     }
 
     void CuentaAhorros::modificarTasaInteres( const double t )

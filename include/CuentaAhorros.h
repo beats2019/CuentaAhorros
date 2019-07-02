@@ -5,7 +5,7 @@
 class CuentaAhorros
 {
     public:
-        CuentaAhorros( const double );
+        CuentaAhorros( const double , const char * const );
         ~CuentaAhorros();
         double calcularInteresMensual();
         double obtenerSaldo();
@@ -13,11 +13,11 @@ class CuentaAhorros
         void modificarTasaInteres( const double );
 
     private:
-        static double tasaInteresAnual;
         double saldoAhorros;
+        char *nombre;
         void modificarSalario();
 
-
+        static double tasaInteresAnual;
 };
 
 #endif // CUENTAAHORROS_H
